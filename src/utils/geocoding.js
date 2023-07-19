@@ -16,10 +16,10 @@ function coordinatesFetcher() {
   }
   
   async function getCurrentISSLocation() {
-    const ISS_BASE_API = 'http://api.open-notify.org';
-    const response = await fetch(`${ISS_BASE_API}/iss-now.json`);
-    const { iss_position: issPosition } = await response.json();
-    return issPosition;
+    const ISS_BASE_API = 'https://api.wheretheiss.at/v1/satellites/25544';
+    const response = await fetch(ISS_BASE_API);
+    const data = await response.json();
+    return data;
   }
 
   return { geoCoding, getCurrentISSLocation }
