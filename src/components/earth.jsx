@@ -3,6 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { OrbitControls, Stars, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import Pin from "./pin";
+import Iss from "./iss";
 
 export function Earth(props) {
   const [colorMap, normalMap, specularMap, cloudsMap, nightMap] = useTexture([
@@ -25,14 +26,14 @@ export function Earth(props) {
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
 
-    earthRef.current.rotation.y = elapsedTime / 6;
-    cloudsRef.current.rotation.y = elapsedTime / 6;
+    // earthRef.current.rotation.y = elapsedTime / 6;
+    cloudsRef.current.rotation.y = elapsedTime / 24;
   });
 
   return (
     <>
       {/* <pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={1.2} /> */}
-      <ambientLight color="#f6f3ea"  intensity={0.7} />
+      <ambientLight color="#f6f3ea"  intensity={0.9} />
       <Stars
         radius={300}
         depth={60}
@@ -64,13 +65,17 @@ export function Earth(props) {
           enableZoom={true}
           enablePan={true}
           enableRotate={true}
-          zoomSpeed={0.6}
+          zoomSpeed={0.2}
           panSpeed={0.5}
           rotateSpeed={0.4}
           target={[0, 0, 3]}
           minDistance={1.3}
+          maxDistance={40}
         />
-        <Pin />
+        {['santiago', 'sydney', 'rio de janeiro'].map((city, index) => (
+          <Pin city={city} key={index} />
+          ))}
+        <Iss />
       </mesh>
     </>
   );
