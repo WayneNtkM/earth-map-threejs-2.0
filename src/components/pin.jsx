@@ -23,7 +23,7 @@ function Pin({ city }) {
     <mesh
       position={[x, y, z]}
     >
-      <sphereGeometry args={[0.008, 3, 2]} />
+      <sphereGeometry args={[0.008, 32, 32]} />
       <meshBasicMaterial
         color={ 0xfff0000 }
       />

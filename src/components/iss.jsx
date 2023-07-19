@@ -9,10 +9,10 @@ export default function Iss() {
 
   useEffect(() => {
     const timer = setInterval(async () => {
-      const { latitude, longitude } = await coordinatesFetcher.getCurrentISSLocation();
+      const { latitude, longitude, ...rest } = await coordinatesFetcher.getCurrentISSLocation();
       const { x, y, z } = calculate(latitude, longitude).coordinates();
       setCoordinates({ x, y, z });
-    }, 10000);
+    }, 1000);
 
     return () => clearInterval(timer);
   }, []);
