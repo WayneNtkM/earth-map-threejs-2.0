@@ -4,6 +4,9 @@ const nextConfig = {
   env: {
     NINJAS_APIKEY: process.env.NINJAS_APIKEY,
     N2YO_APIKEY: process.env.N2YO_APIKEY,
+  },
+  compiler: {
+    styledComponents: true
   }
 }
 

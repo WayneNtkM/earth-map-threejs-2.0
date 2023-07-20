@@ -26,14 +26,21 @@ export function Earth() {
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
 
-    // earthRef.current.rotation.y = elapsedTime / 3600;
+    // earthRef.current.rotation.y = elapsedTime / 24;
     cloudsRef.current.rotation.y = elapsedTime / 24;
   });
 
   return (
     <>
-      {/* <pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={1.2} /> */}
-      <ambientLight color="#f6f3ea"  intensity={0.9} />
+      <ambientLight color="0xffffff"  intensity={0.8} />
+      {/* <hemisphereLight
+        args={[0xffffff, 0xffffff, 0.1]}
+        groundColor={[0.095, 1, 0.75 ]}
+      />
+      <directionalLight
+        args={[0xFFFFFF, 1]}
+        position={[-100, 10, 50]}
+      /> */}
       <Stars
         radius={300}
         depth={60}
