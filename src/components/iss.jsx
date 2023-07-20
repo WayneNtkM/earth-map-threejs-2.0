@@ -12,7 +12,7 @@ export default function Iss() {
       const { latitude, longitude, ...rest } = await coordinatesFetcher.getCurrentISSLocation();
       const { x, y, z } = calculate(latitude, longitude).coordinates();
       setCoordinates({ x, y, z });
-    }, 1000);
+    }, 10000);
 
     return () => clearInterval(timer);
   }, []);

@@ -2,7 +2,7 @@ import calculate from '@/utils/coordinatesConverter';
 import coordinatesFetcher from '@/utils/geocoding';
 import React, { useEffect, useState } from 'react'
 
-function Pin({ city }) {
+export default function Pin({ city }) {
   const [{ x, y, z }, setCoordinates] = useState({ x: 0, y: 0, z: 0 });
   
   useEffect(() => {
@@ -30,5 +30,3 @@ function Pin({ city }) {
     </mesh>
   )
 }
-
-export default Pin;

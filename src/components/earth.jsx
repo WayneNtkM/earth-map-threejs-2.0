@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, lazy } from "react";
 import { useFrame } from "@react-three/fiber";
 import { OrbitControls, Stars, useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import Pin from "./pin";
-import Iss from "./iss";
+const Pin = lazy(() => import('@/components/pin'));
+const Iss = lazy(() => import('@/components/iss'));
 
-export function Earth(props) {
+export function Earth() {
   const [colorMap, normalMap, specularMap, cloudsMap, nightMap] = useTexture([
     '/8k_earth_daymap.jpeg',
     '8k_earth_normal_map.jpeg',
@@ -26,7 +26,7 @@ export function Earth(props) {
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
 
-    // earthRef.current.rotation.y = elapsedTime / 6;
+    // earthRef.current.rotation.y = elapsedTime / 3600;
     cloudsRef.current.rotation.y = elapsedTime / 24;
   });
 
