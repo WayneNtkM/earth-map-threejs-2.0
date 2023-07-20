@@ -10,6 +10,7 @@ const StyledDiv = styled.div`
   height: 100vh;
   position: fixed;
   top: 0;
+  width: 100vw;
 `;
 
 export default function Home() {
