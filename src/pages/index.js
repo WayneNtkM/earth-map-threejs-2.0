@@ -10,6 +10,7 @@ const StyledDiv = styled.div`
   height: 100vh;
   position: fixed;
   top: 0;
+  width: 100vw;
 `;
 
 export default function Home() {
@@ -17,12 +18,12 @@ export default function Home() {
     <StyledDiv>
       <Menu>
         <UserOptions />
-      </Menu>
-      <Canvas>
         <Suspense fallback={null}>
-          <Earth />
+          <Canvas>
+              <Earth />
+          </Canvas>
         </Suspense>
-      </Canvas>
+      </Menu>
     </StyledDiv>
   )
 }
