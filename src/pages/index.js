@@ -18,12 +18,12 @@ export default function Home() {
     <StyledDiv>
       <Menu>
         <UserOptions />
-      </Menu>
-      <Canvas>
         <Suspense fallback={null}>
-          <Earth />
+          <Canvas>
+              <Earth />
+          </Canvas>
         </Suspense>
-      </Canvas>
+      </Menu>
     </StyledDiv>
   )
 }
